@@ -6,6 +6,7 @@ axios.defaults.baseURL =
 export async function getContacts() {
   const { data } = await axios.get("/contacts");
   return data;
+
 }
 
 export async function addContact(contact) {

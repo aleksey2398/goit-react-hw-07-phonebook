@@ -6,7 +6,7 @@ import {
   filterContacts,
   fetchContactsSuccess,
 } from "./phonebook-actions";
-
+//({...state, items:[...payload]})
 const items = createReducer([], {
   [fetchContactsSuccess]: (_, action) => [action.payload],
   [addContactSuccess]: (state, action) => {

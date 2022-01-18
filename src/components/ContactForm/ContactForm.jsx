@@ -12,6 +12,8 @@ function ContactForm() {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
 
+
+
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
