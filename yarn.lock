@@ -7110,7 +7110,7 @@
     "strip-ansi" "^6.0.1"
     "text-table" "^0.2.0"
 
-"react-dom@*", "react-dom@^17.0.2":
+"react-dom@*", "react-dom@^16.0.0 || ^17.0.0", "react-dom@^17.0.2":
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -7138,6 +7138,11 @@
   "integrity" "sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   "version" "17.0.2"
+
+"react-loader-spinner@^5.0.10":
+  "integrity" "sha512-wYYs3/8NQFHOFGvvcpaPJCHxjDCuk1pAEG3ziuNoQwH6hxBbIZiQLrfkXlrLKNtnu9vBeeDZp8PljMAduGT5Mg=="
+  "resolved" "https://registry.npmjs.org/react-loader-spinner/-/react-loader-spinner-5.0.10.tgz"
+  "version" "5.0.10"
 
 "react-redux@^7.2.1 || ^8.0.0-beta", "react-redux@^7.2.6":
   "integrity" "sha512-10RPdsz0UUrRL1NZE0ejTkucnclYSgXp5q+tB5SWx2qeG2ZJQJyymgAhwKy73yiL/13btfB6fPr+rgbMAaZIAQ=="
@@ -7211,7 +7216,7 @@
   optionalDependencies:
     "fsevents" "^2.3.2"
 
-"react@*", "react@^16.8.3 || ^17", "react@^16.9.0 || ^17.0.0 || 18.0.0-beta", "react@^17.0.1", "react@>= 16", "react@17.0.2":
+"react@*", "react@^16.0.0 || ^17.0.0", "react@^16.8.3 || ^17", "react@^16.9.0 || ^17.0.0 || 18.0.0-beta", "react@^17.0.1", "react@>= 16", "react@17.0.2":
   "integrity" "sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.1.tgz"
   "version" "17.0.1"

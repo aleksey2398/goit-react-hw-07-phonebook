@@ -11,14 +11,13 @@ import {
   deleteContactRequest,
   addContactError,
   addContactRequest,
-
 } from "./phonebook-actions";
 const items = createReducer([], {
   [fetchContactsSuccess]: (_, { payload }) => payload,
-  [addContactSuccess]: (state, {payload}) => {
+  [addContactSuccess]: (state, { payload }) => {
     return [...state, payload];
   },
-  [deleteContactSuccess]: (state, {payload}) =>
+  [deleteContactSuccess]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
 });
 
@@ -31,7 +30,7 @@ const error = createReducer(null, {
   [deleteContactRequest]: () => null,
   [addContactError]: (_, { payload }) => payload,
   [addContactRequest]: () => null,
-  [fetchContactsRequest]:() => null,
+  [fetchContactsRequest]: () => null,
   [fetchContactsError]: (_, { payload }) => payload,
 });
 
@@ -48,13 +47,12 @@ const isLoadingReducer = createReducer(false, {
   // request -> true
   // success -> false
   // error -> false
-})
-
+});
 
 export default combineReducers({
   items,
   filter,
- error,
-//  isLoading: isLoading
-isLoading: isLoadingReducer
+  error,
+  //  isLoading: isLoading
+  isLoading: isLoadingReducer,
 });

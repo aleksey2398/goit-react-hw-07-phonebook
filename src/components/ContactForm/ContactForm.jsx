@@ -2,15 +2,20 @@ import React, { useState } from "react";
 import styles from "./ContactForm.module.css";
 import InputField from "../InputField/InputField";
 import inputAttr from "../InputField/InputAttr";
-import { fetchContacts, addContact } from "../../redux/phonebook/phonebook-operations";
+import {
+  fetchContacts,
+  addContact,
+} from "../../redux/phonebook/phonebook-operations";
 import { useDispatch, useSelector } from "react-redux";
 import { getContacts } from "../../redux/phonebook/phonebook-selectors";
+import { Watch } from "react-loader-spinner";
 
 function ContactForm() {
+  const dispatch = useDispatch();
+  const contacts = useSelector(getContacts);
+  const isLoading = useSelector((state) => state.contacts.isLoading);
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
-  const dispatch = useDispatch();
-  const contacts = useSelector(getContacts)
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -26,7 +31,11 @@ function ContactForm() {
     //   return alert(`${name} is already in contacts`);
 
     // }
-    if (contacts.some((contact) => contact.name.toLowerCase() === name.toLowerCase())) {
+    if (
+      contacts.some(
+        (contact) => contact.name.toLowerCase() === name.toLowerCase()
+      )
+    ) {
       return alert(`${name} is already in contacts`);
     }
 
@@ -35,11 +44,10 @@ function ContactForm() {
     reset();
   };
 
-
   function reset() {
     setName("");
     setNumber("");
-  };
+  }
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
@@ -53,7 +61,13 @@ function ContactForm() {
         value={number}
         onChange={handleNumberChange}
       />
-      <button type="submit">Add contact</button>
+      <button type="submit">
+        {!isLoading ? (
+          "Add contact"
+        ) : (
+          <Watch width={30} height={30} color="#00BFFF" />
+        )}
+      </button>
     </form>
   );
 }
