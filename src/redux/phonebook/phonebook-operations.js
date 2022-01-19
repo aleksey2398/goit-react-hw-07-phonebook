@@ -39,11 +39,11 @@ import {
     };
   
   export const deleteContact = (id) => async (dispatch) => {
-    dispatch(deleteContactRequest());
+    dispatch(deleteContactRequest()); // true
     try {
       await API.deleteContact(id);
-      dispatch(deleteContactSuccess(id));
+      dispatch(deleteContactSuccess(id)); // false
     } catch (error) {
-      dispatch(deleteContactError(error));
+      dispatch(deleteContactError(error)); // false
     }
   };
