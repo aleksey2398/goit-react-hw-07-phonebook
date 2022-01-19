@@ -12,7 +12,7 @@ const ContactList = () => {
 
   useEffect(() => {
     dispatch(fetchContacts());
-  }, []);
+  }, [dispatch]);
 
   const list = contacts?.map(({ id, name, number }) => (
     <Contact key={id} name={name} number={number} id={id} />

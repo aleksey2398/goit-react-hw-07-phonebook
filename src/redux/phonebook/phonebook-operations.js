@@ -15,7 +15,6 @@ import {
     dispatch(fetchContactsRequest());
     try {
       const data = await API.getContacts();
-      console.log(data);
       dispatch(fetchContactsSuccess(data));
     } catch (error) {
       dispatch(fetchContactsError(error.message));

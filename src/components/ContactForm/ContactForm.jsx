@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./ContactForm.module.css";
 import InputField from "../InputField/InputField";
 import inputAttr from "../InputField/InputAttr";
-import { addContact } from "../../redux/phonebook/phonebook-operations";
+import { fetchContacts, addContact } from "../../redux/phonebook/phonebook-operations";
 import { useDispatch, useSelector } from "react-redux";
 import { getContacts } from "../../redux/phonebook/phonebook-selectors";
 
@@ -10,9 +10,7 @@ function ContactForm() {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
-
-
+  const contacts = useSelector(getContacts)
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -23,14 +21,22 @@ function ContactForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (contacts?.map((contact) => contact.name).includes(name)) {
+    //   const isName = contacts.some(state => state.toLowerCase() === name.toLowerCase())
+    // if(isName){
+    //   return alert(`${name} is already in contacts`);
+
+    // }
+    if (contacts.some((contact) => contact.name.toLowerCase() === name.toLowerCase())) {
       return alert(`${name} is already in contacts`);
     }
+
     dispatch(addContact({ name, number }));
+    dispatch(fetchContacts());
     reset();
   };
 
-  const reset = () => {
+
+  function reset() {
     setName("");
     setNumber("");
   };
